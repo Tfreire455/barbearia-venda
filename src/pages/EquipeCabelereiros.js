@@ -215,11 +215,6 @@ function EquipeCabelereiros() {
       <TeamSection>
         {teamData.map((barber, index) => (
           <BarberSection
-            key={index}
-            initial={{ x: index % 2 === 0 ? -200 : 200, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.5 }}
           >
             <img src={barber.image} alt={barber.name} />
             <div>
