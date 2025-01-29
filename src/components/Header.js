@@ -169,6 +169,7 @@ function Header() {
   const handleNavClick = (id) => {
     if (window.location.pathname !== "/") {
       navigate("/");
+
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);
