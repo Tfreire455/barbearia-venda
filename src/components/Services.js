@@ -10,10 +10,10 @@ import Barbear from "../assets/icon/barbear.png";
 import { useTranslation } from "react-i18next";
 
 const ServiceList = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Cria uma grid responsiva */
+  gap: 20px;
   background: #222;
-  flex-direction: column;
-  justify-content: center;
   padding: 50px 20px;
 
   @media (max-width: 768px) {
@@ -43,11 +43,12 @@ const ServiceItem = styled.div`
 
 const Service = styled(motion.div)`
   color: #ddd;
-  margin: 10px 60px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 40vh;
+  height: auto; /* Remover altura fixa para que o conteúdo se ajuste */
   background-image: 
     linear-gradient(45deg, rgba(255, 255, 255, 0) 0%, #000 60%, #000 100%),
     url(${(props) => props.bgImage});
@@ -56,17 +57,14 @@ const Service = styled(motion.div)`
   background-position: center;
   background-attachment: scroll;
   box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  text-align: center;
 
   @media (max-width: 768px) {
-    margin: 10px 20px;
     height: 40vh;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
   }
 
   @media (max-width: 480px) {
-    margin: 10px 10px;
     height: 30vh;
   }
 `;

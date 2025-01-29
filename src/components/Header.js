@@ -12,7 +12,11 @@ const HeaderContainer = styled.header`
   justify-content: space-between;
   align-items: center;
 
-  @media (max-width: 468px) {
+  @media (max-width: 1024px) {
+    padding: 15px 30px;
+  }
+
+  @media (max-width: 768px) {
     padding: 10px 20px;
     flex-direction: column;
     align-items: flex-start;
@@ -24,6 +28,10 @@ const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 20px;
+  @media (max-width: 1024px) {
+    gap: 15px;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     width: 100%;
@@ -42,6 +50,12 @@ const NavItem = styled.span`
   &:hover {
     color: #ff6347;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    margin: 10px 15px;
+  }
+
   @media (max-width: 768px) {
     margin: 10px 0;
   }
@@ -60,6 +74,7 @@ const DropdownMenu = styled.div`
   @media (max-width: 768px) {
     position: static;
     margin-top: 10px;
+    width: 100%;
   }
 `;
 
@@ -75,6 +90,10 @@ const DropdownItem = styled.div`
 const SocialIcons = styled.div`
   display: flex;
   gap: 15px;
+  @media (max-width: 1024px) {
+    gap: 12px;
+  }
+
   @media (max-width: 768px) {
     margin-top: 10px;
   }
@@ -86,6 +105,14 @@ const Icon = styled.a`
   transition: color 0.3s ease;
   &:hover {
     color: #ff6347;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 22px;
   }
 `;
 
@@ -103,6 +130,11 @@ const LanguageSelector = styled.div`
       transform: scale(1.1);
     }
   }
+
+  @media (max-width: 1024px) {
+    gap: 8px;
+  }
+
   @media (max-width: 768px) {
     margin-bottom: 10px;
   }
@@ -112,6 +144,10 @@ const MobileMenuIcon = styled.div`
   display: none;
   font-size: 24px;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+
   @media (max-width: 768px) {
     display: block;
     position: absolute;

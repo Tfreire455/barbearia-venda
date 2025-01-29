@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"; // Importando ícones
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import barber1 from "../assets/images/barberman.png";
 import barber2 from "../assets/images/barberman2.png";
 import barber3 from "../assets/images/barberman3.png";
@@ -12,12 +12,8 @@ const ContainerTeam = styled.div`
   align-items: center;
   padding: 20px;
   background-color: #111;
-  height: 70vh;
+  height: auto;
   margin: 50px auto;
-
-  @media (max-width: 768px) {
-    height: auto;
-  }
 `;
 
 const Title = styled.h2`
@@ -38,7 +34,13 @@ const TeamSection = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 `;
+
 const BarberSection = styled(motion.div)`
   display: flex;
   flex-direction: column;
@@ -50,8 +52,8 @@ const BarberSection = styled(motion.div)`
   border: 8px solid #222;
   border-radius: 20px;
   margin: 10px 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionando transição para o hover */
-
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
   &::before {
     content: "";
     position: absolute;
@@ -141,23 +143,17 @@ const BarberSection = styled(motion.div)`
   }
 
   @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: space-between;
-    width: 45%; /* For two items per row */
+    width: 45%;
   }
 
   @media (min-width: 1024px) {
-    width: 30%; /* For three items per row */
+    width: 30%;
   }
 
-  /* Efeito de hover */
   &:hover {
-
-    box-shadow: 0 10px 20px #ff634790; /* Adiciona sombra */
+    box-shadow: 0 10px 20px #ff634790;
   }
 `;
-
-
 
 function EquipeCabelereiros() {
   const teamData = [
