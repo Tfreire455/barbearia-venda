@@ -150,7 +150,7 @@ const MobileMenuIcon = styled.div`
     font-size: 30px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1068px) {
     display: block;
     position: absolute;
     top: 20px;
