@@ -37,6 +37,8 @@ const Nav = styled.nav`
     width: 100%;
     display: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "flex" : "none")};
     margin-top: 10px;
+    max-height: 70vh; /* Limita a altura do menu */
+    overflow-y: auto; /* Permite rolar o menu se necessário */
   }
 `;
 
@@ -169,7 +171,6 @@ function Header() {
   const handleNavClick = (id) => {
     if (window.location.pathname !== "/") {
       navigate("/");
-
       setTimeout(() => {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
       }, 100);

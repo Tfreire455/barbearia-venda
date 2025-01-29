@@ -28,6 +28,7 @@ const TeamSection = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 20px;
+  justify-content: center;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -154,6 +155,7 @@ const BarberSection = styled(motion.div)`
     box-shadow: 0 10px 20px #ff634790;
   }
 `;
+
 
 function EquipeCabelereiros() {
   const teamData = [
