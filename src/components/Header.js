@@ -32,7 +32,7 @@ const Nav = styled.nav`
     gap: 15px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1068px) {
     flex-direction: column;
     width: 100%;
     display: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "flex" : "none")};
