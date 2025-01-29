@@ -37,7 +37,7 @@ const ServiceItem = styled.div`
   }
 
   @media (max-width: 480px) {
-    gap: 10px;
+    gap: 20px;
   }
 `;
 
@@ -59,7 +59,7 @@ const Service = styled(motion.div)`
 
   @media (max-width: 768px) {
     margin: 10px 20px;
-    height: 35vh;
+    height: 40vh;
     flex-direction: column;
     align-items: center;
     text-align: center;
