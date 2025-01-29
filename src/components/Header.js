@@ -96,7 +96,7 @@ const SocialIcons = styled.div`
     gap: 12px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 1068px) {
     margin-top: 10px;
   }
 `;
@@ -151,8 +151,7 @@ const MobileMenuIcon = styled.div`
   }
 
   @media (max-width: 1068px) {
-    display: block;
-    position: absolute;
+    display: flex;
     top: 20px;
     right: 20px;
   }
