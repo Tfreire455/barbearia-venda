@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaTwitter, FaWhatsapp, FaBars, FaTimes } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 
 const HeaderContainer = styled.header`
@@ -11,6 +11,11 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 768px) {
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const Nav = styled.nav`
@@ -18,6 +23,12 @@ const Nav = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 20px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    display: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "flex" : "none")};
+    margin-top: 10px;
+  }
 `;
 
 const NavItem = styled.span`
@@ -29,6 +40,9 @@ const NavItem = styled.span`
   position: relative;
   &:hover {
     color: #ff6347;
+  }
+  @media (max-width: 768px) {
+    margin: 10px 0;
   }
 `;
 
@@ -42,6 +56,10 @@ const DropdownMenu = styled.div`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   z-index: 10;
   min-width: 180px;
+  @media (max-width: 768px) {
+    position: static;
+    margin-top: 10px;
+  }
 `;
 
 const DropdownItem = styled.div`
@@ -56,6 +74,9 @@ const DropdownItem = styled.div`
 const SocialIcons = styled.div`
   display: flex;
   gap: 15px;
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
 `;
 
 const Icon = styled.a`
@@ -81,12 +102,28 @@ const LanguageSelector = styled.div`
       transform: scale(1.1);
     }
   }
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
+`;
+
+const MobileMenuIcon = styled.div`
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
 `;
 
 function Header() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileNavOpen, setMobileNavOpen] = useState(false);
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
@@ -101,11 +138,17 @@ function Header() {
     } else {
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     }
+    setMobileNavOpen(false);
   };
 
   const handleNavigate = (path) => {
     navigate(path);
     setDropdownOpen(false);
+    setMobileNavOpen(false);
+  };
+
+  const toggleMobileNav = () => {
+    setMobileNavOpen(!isMobileNavOpen);
   };
 
   return (
@@ -115,7 +158,10 @@ function Header() {
         <img src="https://flagcdn.com/w40/br.png" alt="Português" onClick={() => changeLanguage("pt")} />
         <img src="https://flagcdn.com/w40/es.png" alt="Español" onClick={() => changeLanguage("es")} />
       </LanguageSelector>
-      <Nav>
+      <MobileMenuIcon onClick={toggleMobileNav}>
+        {isMobileNavOpen ? <FaTimes /> : <FaBars />}
+      </MobileMenuIcon>
+      <Nav isMobileNavOpen={isMobileNavOpen}>
         <NavItem onClick={() => handleNavClick("hero")}>{t("hero_title")}</NavItem>
         <NavItem onClick={() => handleNavClick("services")}>{t("service_title")}</NavItem>
         <NavItem onClick={() => handleNavClick("offers")}>{t("offers_title")}</NavItem>

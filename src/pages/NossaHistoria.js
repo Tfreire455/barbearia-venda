@@ -40,6 +40,7 @@ const TimelineItem = styled.div`
   align-items: flex-start;
   margin-bottom: 80px;
   position: relative;
+  flex-wrap: wrap; /* Garante que os itens se ajustem em telas pequenas */
 
   &:last-child {
     margin-bottom: 0;
@@ -79,6 +80,11 @@ const TimelineContent = styled.div`
     color: #555;
     margin: 0;
   }
+
+  @media (max-width: 768px) {
+    width: 100%; /* Ocupa toda a largura em telas pequenas */
+    padding: 15px;
+  }
 `;
 
 const ImageWrapper = styled(motion.div)`
@@ -87,6 +93,7 @@ const ImageWrapper = styled(motion.div)`
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-top: 20px; /* Para separar um pouco as imagens */
 
   img {
     width: 100%;
@@ -95,11 +102,17 @@ const ImageWrapper = styled(motion.div)`
     border-radius: 12px;
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 90%;
+  }
 `;
 
 const Header = styled.h1`
   color: #ff6347;
   margin-bottom: 40px;
+  text-align: center; /* Centraliza o título em dispositivos menores */
 `;
 
 function NossaHistoria() {

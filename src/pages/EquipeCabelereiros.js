@@ -12,8 +12,12 @@ const ContainerTeam = styled.div`
   align-items: center;
   padding: 20px;
   background-color: #111;
-  min-height: 100vh;
-  margin: 100px;
+  height: 70vh;
+  margin: 50px auto;
+
+  @media (max-width: 768px) {
+    height: auto;
+  }
 `;
 
 const Title = styled.h2`
@@ -28,10 +32,16 @@ const TeamSection = styled.div`
   flex-direction: column;
   width: 100%;
   gap: 20px;
-  `;
-  
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+`;
 const BarberSection = styled(motion.div)`
-display: flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -39,7 +49,8 @@ display: flex;
   overflow: hidden;
   border: 8px solid #222;
   border-radius: 20px;
-  flex-direction: row-reverse;
+  margin: 10px 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adicionando transição para o hover */
 
   &::before {
     content: "";
@@ -54,31 +65,42 @@ display: flex;
   }
 
   img {
-    flex: 0 0 50%;
-    width: 300px;
-    height: 100vh;
+    width: 100%;
+    height: 300px;
     object-fit: cover;
     border-radius: 12px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
     filter: drop-shadow(22px 2px 5px #ff6347);
+
+    @media (min-width: 768px) {
+      width: 300px;
+      height: 400px;
+    }
   }
 
   div {
-    flex: 1;
-    padding: 20px 100px;
-    height: 70vh;
+    padding: 20px;
+    background: #222;
+    height: 100%;
+    border: solid 6px #111;
     border-radius: 12px;
     z-index: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    text-align: center;
 
     h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 15px;
       color: #ff6347;
     }
 
     p {
-      font-size: 1.5rem;
+      font-size: 1rem;
       color: #fff;
       margin-bottom: 20px;
       line-height: 1.5;
@@ -89,17 +111,21 @@ display: flex;
       padding: 0;
 
       li {
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #ccc;
         margin-bottom: 10px;
       }
     }
 
     .social-icons {
-    width: 60px;
-    height: 60px;
+      width: 60px;
+      height: 60px;
+      border: none;
       display: flex;
+      flex-direction: row;
       gap: 10px;
+      justify-content: center;
+      margin: 0 auto;
       margin-top: 20px;
 
       a {
@@ -113,7 +139,25 @@ display: flex;
       }
     }
   }
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 45%; /* For two items per row */
+  }
+
+  @media (min-width: 1024px) {
+    width: 30%; /* For three items per row */
+  }
+
+  /* Efeito de hover */
+  &:hover {
+
+    box-shadow: 0 10px 20px #ff634790; /* Adiciona sombra */
+  }
 `;
+
+
 
 function EquipeCabelereiros() {
   const teamData = [

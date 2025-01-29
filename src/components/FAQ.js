@@ -9,6 +9,9 @@ const FAQContainer = styled.div`
   height: 80vh;
   padding: 50px 20px;
   background-color: #f9f9f9;
+  @media (max-width: 768px) {
+   height: auto;
+  }
 `;
 
 const FAQTitle = styled.h1`
@@ -16,6 +19,11 @@ const FAQTitle = styled.h1`
   color: #333;
   margin-bottom: 20px;
   font-weight: bold;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 const QuestionWrapper = styled.div`
@@ -26,6 +34,10 @@ const QuestionWrapper = styled.div`
   background: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const QuestionHeader = styled.div`
@@ -40,10 +52,17 @@ const QuestionHeader = styled.div`
   &:hover {
     background: #444;
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 const Icon = styled.span`
   font-size: 24px;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const Answer = styled.div`
@@ -51,6 +70,10 @@ const Answer = styled.div`
   background: #f9f9f9;
   color: #555;
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 const FAQ = () => {

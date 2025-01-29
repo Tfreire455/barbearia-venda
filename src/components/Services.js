@@ -15,16 +15,33 @@ const ServiceList = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 50px 20px;
-  `;
-  
-  const ServiceItem = styled.div`
+
+  @media (max-width: 768px) {
+    padding: 30px 10px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 5px;
+  }
+`;
+
+const ServiceItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  `;
-  
-  const Service = styled(motion.div)`
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 10px;
+  }
+`;
+
+const Service = styled(motion.div)`
   color: #ddd;
   margin: 10px 60px;
   display: flex;
@@ -37,8 +54,21 @@ const ServiceList = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: scroll; /* Mudança de fixed para scroll */
+  background-attachment: scroll;
   box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.75);
+
+  @media (max-width: 768px) {
+    margin: 10px 20px;
+    height: 35vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    margin: 10px 10px;
+    height: 30vh;
+  }
 `;
 
 const Title = styled.h2`
@@ -46,6 +76,16 @@ const Title = styled.h2`
   color: #ff6347;
   margin-bottom: 40px;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
 `;
 
 const TitleService = styled.h1`
@@ -56,6 +96,19 @@ const TitleService = styled.h1`
   text-transform: uppercase;
   text-align: start;
   align-self: center;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    width: 80%;
+    padding: 10px 20px;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 22px;
+    width: 90%;
+    padding: 10px 10px;
+  }
 `;
 
 const ServiceDescription = styled.p`
@@ -63,6 +116,15 @@ const ServiceDescription = styled.p`
   width: 30%;
   align-self: center;
   color: #ddd;
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
+
+  @media (max-width: 480px) {
+    width: 80%;
+    font-size: 14px;
+  }
 `;
 
 const DivColumn = styled.div`
@@ -76,6 +138,16 @@ const DivColumn = styled.div`
   width: 100%;
   gap: 15px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    margin: 5% 20px;
+    padding: 15px 10px;
+  }
+
+  @media (max-width: 480px) {
+    margin: 5% 10px;
+    padding: 10px 5px;
+  }
 `;
 
 const Button = styled.button`
@@ -95,12 +167,33 @@ const Button = styled.button`
   &:hover {
     background-color: #666;
   }
+
+  @media (max-width: 768px) {
+    width: 30%;
+    margin: 10px auto;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    width: 40%;
+    font-size: 12px;
+  }
 `;
 
 const Icone = styled.img`
   width: 100px;
   height: 100px;
   filter: invert(75%);
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media (max-width: 480px) {
+    width: 60px;
+    height: 60px;
+  }
 `;
 
 const itemVariants = {
@@ -133,7 +226,7 @@ function Services() {
   const { t } = useTranslation();
 
   return (
-    <ServiceList>
+    <ServiceList id="services">
       <Title>{t("service_title")}</Title>
       <ServiceItem>
         {servicos.map((service, index) => (
@@ -144,12 +237,12 @@ function Services() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }} // Delay para suavizar
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <TitleService>{t(service.titulo)}</TitleService>
             <DivColumn>
               <ServiceDescription>{t(service.descricao)}</ServiceDescription>
-              <Icone src={service.icone}></Icone>
+              <Icone src={service.icone} alt={t(service.titulo)} />
             </DivColumn>
             <Button>{t("saiba_mais")}</Button>
           </Service>

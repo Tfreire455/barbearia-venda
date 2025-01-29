@@ -3,15 +3,21 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
-
 const BookingContainer = styled.section`
   background: #111;
   padding: 60px 20px;
   text-align: center;
   color: #fff;
-    margin: 50px 100px;
+  margin: 30px auto;
+  width: 80vw;
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    margin: 30px 20px;
+    padding: 40px 15px;
+  }
 `;
 
 const Title = styled.h2`
@@ -19,6 +25,11 @@ const Title = styled.h2`
   margin-bottom: 30px;
   color: #ff6347;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
 `;
 
 const BookingForm = styled.form`
@@ -29,6 +40,11 @@ const BookingForm = styled.form`
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    gap: 15px;
+  }
 `;
 
 const BookingInput = styled.input`
@@ -47,6 +63,11 @@ const BookingInput = styled.input`
     outline: none;
     background: #fff;
     box-shadow: 0px 4px 12px rgba(255, 99, 71, 0.6);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 10px 12px;
   }
 `;
 
@@ -70,28 +91,35 @@ const BookingButton = styled.button`
     transform: translateY(0);
     box-shadow: 0px 4px 12px rgba(255, 99, 71, 0.4);
   }
+
+  @media (max-width: 768px) {
+    padding: 10px 25px;
+    font-size: 14px;
+  }
 `;
 
 const InfoText = styled.p`
   margin-top: 20px;
   font-size: 14px;
   color: #d1d5db;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 function Booking() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <BookingContainer>
-    <Title>{t("booking_title")}</Title>
+      <Title>{t("booking_title")}</Title>
       <BookingForm>
         <BookingInput type="text" placeholder={t("booking_placeholder")} />
         <BookingInput type="date" />
         <BookingInput type="time" />
         <BookingButton type="submit">{t("booking_button")}</BookingButton>
       </BookingForm>
-      <InfoText>
-        {t("booking_text_info")}
-      </InfoText>
+      <InfoText>{t("booking_text_info")}</InfoText>
     </BookingContainer>
   );
 }

@@ -8,9 +8,16 @@ const ContactContainer = styled.section`
   color: #fff;
   padding: 60px 20px;
   text-align: center;
-  margin: 50px 100px;
+  margin: 30px auto;
+  width: 80vw;
   border-radius: 15px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    margin: 30px 20px;
+    padding: 40px 20px;
+  }
 `;
 
 const Title = styled.h2`
@@ -18,6 +25,22 @@ const Title = styled.h2`
   margin-bottom: 30px;
   color: #ff6347;
   font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+`;
+const TitleMessage = styled.h2`
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #ff6347;
+  font-weight: bold;
+
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
 `;
 
 const ContactInfo = styled.div`
@@ -26,6 +49,10 @@ const ContactInfo = styled.div`
 
   p {
     margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 16px;
   }
 `;
 
@@ -43,6 +70,10 @@ const MapContainer = styled.div`
     height: 100%;
     border: none;
   }
+
+  @media (max-width: 768px) {
+    height: 250px;
+  }
 `;
 
 const FormContainer = styled.div`
@@ -53,6 +84,10 @@ const FormContainer = styled.div`
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
 `;
 
 const Form = styled.form`
@@ -74,6 +109,11 @@ const Input = styled.input`
   &:focus {
     border: 2px solid #ff6347;
   }
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+    padding: 12px;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -90,6 +130,12 @@ const TextArea = styled.textarea`
   &:focus {
     border: 2px solid #ff6347;
   }
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    height: 80px;
+    padding: 12px;
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -105,10 +151,15 @@ const SubmitButton = styled.button`
   &:hover {
     background: #ff4500;
   }
+
+  @media (max-width: 768px) {
+    padding: 12px;
+    font-size: 14px;
+  }
 `;
 
 function Contact() {
-  const {t} = useTranslation();
+  const { t } = useTranslation();
   return (
     <ContactContainer>
       <Title>{t("contact_title")}</Title>
@@ -118,7 +169,7 @@ function Contact() {
         <p>{t("contact_address")} Rua Exemplo, 123 - Cidade</p>
       </ContactInfo>
       <FormContainer>
-        <Title>{t("contact_message_title")}</Title>
+        <TitleMessage>{t("contact_message_title")}</TitleMessage>
         <Form>
           <Input type="text" placeholder={t("contact_message_name")} required />
           <Input type="email" placeholder={t("contact_message_email")} required />
