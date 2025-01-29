@@ -73,7 +73,7 @@ const DropdownMenu = styled.div`
   display: ${({ isOpen }) => (isOpen ? "block" : "none")};
   z-index: 10;
   min-width: 180px;
-  @media (max-width: 768px) {
+  @media (max-width: 1068px) {
     position: static;
     margin-top: 10px;
     width: 100%;
