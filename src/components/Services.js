@@ -15,16 +15,16 @@ const ServiceList = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 50px 20px;
-  `;
-  
-  const ServiceItem = styled.div`
+`;
+
+const ServiceItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  `;
-  
-  const Service = styled(motion.div)`
+`;
+
+const Service = styled(motion.div)`
   color: #ddd;
   margin: 10px 60px;
   display: flex;
@@ -37,8 +37,14 @@ const ServiceList = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-attachment: scroll; /* Mudança de fixed para scroll */
+  background-attachment: scroll; 
   box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.75);
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    margin: 10px 0;
+  }
 `;
 
 const Title = styled.h2`
@@ -56,6 +62,11 @@ const TitleService = styled.h1`
   text-transform: uppercase;
   text-align: start;
   align-self: center;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    font-size: 28px;
+  }
 `;
 
 const ServiceDescription = styled.p`
@@ -63,6 +74,10 @@ const ServiceDescription = styled.p`
   width: 30%;
   align-self: center;
   color: #ddd;
+
+  @media (max-width: 768px) {
+    width: 80%;
+  }
 `;
 
 const DivColumn = styled.div`
@@ -94,6 +109,10 @@ const Button = styled.button`
 
   &:hover {
     background-color: #666;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 
@@ -144,7 +163,7 @@ function Services() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }} // Delay para suavizar
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <TitleService>{t(service.titulo)}</TitleService>
             <DivColumn>
